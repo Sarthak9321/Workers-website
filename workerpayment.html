@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment Page</title>
+</head>
+<body>
+<h1>Payment Page</h1>
+<p>This page will pay a certain amount to the worker on timestamp of 6 IST</p>
+<script>
+var workerId = "workerId";
+var amount = "100";
+var dateTime = "2023-03-08T06:00:00";
+
+// Set up the event listener
+window.addEventListener("load", function() {
+  // Get the current time
+  var currentTime = new Date();
+
+  // Check if the current time is equal to the scheduled time
+  if (currentTime.getTime() === dateTime.getTime()) {
+    // Pay the worker
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://api.paypal.com/v1/payments/payment");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify({
+      "amount": amount,
+      "currency_code": "USD",
+      "recipient_id": workerId
+    }));
+  }
+});
+</script>
+</body>
+</html>

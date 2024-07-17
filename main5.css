@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    overflow: scroll;
+}
+.logo{
+    height:8%;
+    width: 8%;
+}
+.calendar {
+    width: 600px; /* Adjust the width for smaller screens */
+    max-width:700px; /* Limit the maximum width for larger screens */
+    margin: auto auto;
+    height: 390px;
+    border: 1px solid #ccc;
+    padding: 1%;
+    box-sizing: border-box;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* For mobile screens */
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+
+button {
+    background-color:blue;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2%;
+    margin-top: 5%;
+}
+
+.day {
+    text-align: center;
+    padding: 2%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+}
+
+.mark {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.mark-empty {
+    background-color: #ccc;
+}
+
+.mark-filled {
+    background-color: rgb(6, 255, 6);
+}
+
+#eventCounter {
+    margin-left: 2%;
+    margin-top: 5%;
+    font-weight:normal;
+}
+
+@media (max-width: 768px) {
+    .calendar {
+        width: 70%; /* Adjust the width for smaller screens */
+    }
+    
+    .days {
+        grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns for smaller screens */
+    }
+    
+    .day {
+        font-size: 12px; /* Adjust the font size for smaller screens */
+        padding: 1%; /* Adjust padding for smaller screens */
+    }
+    
+    .mark {
+        width: 8%; /* Adjust the mark size for smaller screens */
+        height: 5%;
+     
+    }
+    
+    .legend {
+        margin-top: 10%;
+    }
+    
+    .legend-item {
+        margin-right: 1%;
+    }
+}
